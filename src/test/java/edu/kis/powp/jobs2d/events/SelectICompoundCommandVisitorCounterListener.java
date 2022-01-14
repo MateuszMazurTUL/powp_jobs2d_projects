@@ -5,7 +5,6 @@ import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
-import edu.kis.powp.jobs2d.command.visitor.VisitorCommand;
 import edu.kis.powp.jobs2d.command.visitor.VisitorCounter;
 
 import java.awt.event.ActionEvent;
@@ -16,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
-class DataTest implements ICompoundCommand
+class CompoundCommandTest implements ICompoundCommand
 {
     List<DriverCommand> list;
 
@@ -70,12 +69,12 @@ public class SelectICompoundCommandVisitorCounterListener implements ActionListe
                 )
         );
 
-        DataTest com = new DataTest();
+        CompoundCommandTest com = new CompoundCommandTest();
         com.setList(commands2);
 
         commands.add(com);
 
-        DataTest test = new DataTest();
+        CompoundCommandTest test = new CompoundCommandTest();
         test.setList(commands);
 
         VisitorCounter visitor = new VisitorCounter();
